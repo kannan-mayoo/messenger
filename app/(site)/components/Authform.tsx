@@ -1,12 +1,15 @@
 'use client';
 
+import axios from "axios"
 import Input from "../../components/inputs/Input";
+
 // import Input from "@/app/components/inputs/Input"
 import { useCallback, useState } from "react";
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form"
 import Button from '../../components/Button'
 import AuthSocialButton from "./AuthSocialButton";
 import {BsGithub, BsGoogle} from 'react-icons/bs'
+// import POST from "./api/register"
 
 type Variant = 'LOGIN' | 'REGISTER'
 
@@ -17,7 +20,7 @@ const Authform = () => {
 
     const toggleVariant = useCallback(() =>{
         if(variant === 'LOGIN') {
-             setVariantds('REGISTER')
+             setVariant('REGISTER')
         }
         else{
             setVariant('LOGIN')
@@ -39,17 +42,20 @@ const Authform = () => {
         }
     })
 
-    const onSubmit: SubmitHandler<FieldValues> = (  ) => {
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-    }
+    
     if (variant === 'REGISTER') {
-        // Axios Register
+        axios.post('/api/register', data)
     }
     if (variant === 'LOGIN') {
         // NextAuth SignIn
     }
 
+    }
+
     const socialAction = (action:string) => {
+        setIsLoading(true);
         // NextAuth Social Sign IN
     }
 
@@ -74,10 +80,10 @@ const Authform = () => {
             className="space-y-6"
             onSubmit={handleSubmit(onSubmit)} >
                 {variant === 'REGISTER' && (
-                <Input id='name' label= "Name" register= {register} errors={errors} />
+                <Input id='name' label= "Name" register= {register} errors={errors} disabled={isLoading} />
                 )}
-                <Input id='email' label= "Email address" type="email" register= {register} errors={errors} />
-                <Input id='password' label= "Password" type="password" register= {register} errors={errors} />
+                <Input id='email' label= "Email address" type="email" register= {register} errors={errors} disabled={isLoading} />
+                <Input id='password' label= "Password" type="password" register= {register} errors={errors} disabled={isLoading} />
                 <div>
                     <Button
                     disabled={isLoading}
