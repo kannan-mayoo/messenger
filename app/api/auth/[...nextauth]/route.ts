@@ -7,6 +7,8 @@ import GoogleProvider from "next-auth/providers/google";
 
 import {PrismaAdapter} from "@next-auth/prisma-adapter";
 
+// import {prisma} from '../../../libs/prismadb';
+
 import prisma from '../../../libs/prismadb';
 // import prisma from "@/app/libs/prismadb";
 // import prisma from "../../../prismadb";
@@ -33,7 +35,7 @@ export const authOptions:AuthOptions = {
                 password:{label:'password', type:'password'} 
             },
            async authorize(credentials) {
-            if(!credentials ?.email || !credentials ?.password) {
+            if(!credentials ?.email || !credentials?.password) {
                 throw new Error('Invalid Credentials');
             }
 
@@ -55,6 +57,7 @@ export const authOptions:AuthOptions = {
             if(!isCorrectPassword) {
                 throw new Error("Invalid Credentials")
             }
+            console.log("Everything alright")
             return user;
            }
         })
@@ -63,7 +66,7 @@ export const authOptions:AuthOptions = {
     session: {
         strategy:"jwt",
     },
-    secret: process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET,
 }
 
 const handler = NextAuth(authOptions);
