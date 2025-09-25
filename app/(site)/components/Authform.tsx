@@ -20,7 +20,7 @@ const Authform = () => {
 
     const toggleVariant = useCallback(() =>{
         if(variant === 'LOGIN') {
-             setVariant('REGISTER')
+            setVariant('REGISTER')
         }
         else{
             setVariant('LOGIN')
@@ -45,8 +45,11 @@ const Authform = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
     
-    if (variant === 'REGISTER') {
+    if (variant === "REGISTER") {
+        console.log("Before API");
         axios.post('/api/register', data)
+        console.log(data);
+        console.log("Loading");
     }
     if (variant === 'LOGIN') {
         // NextAuth SignIn
@@ -56,6 +59,7 @@ const Authform = () => {
 
     const socialAction = (action:string) => {
         setIsLoading(true);
+        console.log("Second Loading");
         // NextAuth Social Sign IN
     }
 
@@ -89,6 +93,7 @@ const Authform = () => {
                     disabled={isLoading}
                     fullWidth 
                     type="submit" 
+                    onClick={()=>{console.log("Button Clicked");}}
                     >
                         {variant === 'LOGIN' ? "Sign in" : "Register"}
                     </Button>
@@ -135,6 +140,9 @@ const Authform = () => {
                 onClick={toggleVariant}
                 className="underline cursor-pointer">
                     {variant === 'LOGIN' ? 'Create an account' : 'Login'}
+                    
+                    {/* console.log("Successful")
+                    toggleVariant */}
 
                 </div>
                 
