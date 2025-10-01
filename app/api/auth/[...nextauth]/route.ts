@@ -9,7 +9,7 @@ import {PrismaAdapter} from "@next-auth/prisma-adapter";
 
 // import {prisma} from '../../../libs/prismadb';
 
-import prisma from '../../../libs/prismadb';
+import {prisma} from '../../../libs/prismadb';
 // import prisma from "@/app/libs/prismadb";
 // import prisma from "../../../prismadb";
 // import async from './../../../node_modules/@panva/hkdf/dist/node/esm/runtime/hkdf';
@@ -35,6 +35,7 @@ export const authOptions:AuthOptions = {
                 password:{label:'password', type:'password'} 
             },
            async authorize(credentials) {
+            console.log("authorize called with:", credentials);
             if(!credentials ?.email || !credentials?.password) {
                 throw new Error('Invalid Credentials');
             }
