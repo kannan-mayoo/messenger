@@ -3,6 +3,7 @@
 // import Image from "next/image";
 import Image from "next/image";
 import { User } from "../generated/prisma";
+import React from "react";
 
 interface AvatarProps{
     user?: User;
