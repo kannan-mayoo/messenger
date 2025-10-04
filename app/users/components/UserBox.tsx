@@ -29,6 +29,8 @@ const UserBox:React.FC<UserBoxProps> = (
             userId: data.id
         })
         .then((data)=>{
+            // console.log('Axios response:', response);
+            // console.log('Response data:', response.data);
             router.push(`/conversations/${data.data.id}`)
         })
         .finally(()=>{
@@ -65,7 +67,7 @@ const UserBox:React.FC<UserBoxProps> = (
                     <div className="
                     flex
                     justify-between
-                    items-cetner
+                    items-center
                     mb-1">
                         <p className='
                         text-sm
