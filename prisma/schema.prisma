@@ -76,9 +76,77 @@ model Message {
   seenIds String[] @db.ObjectId
   seen    User[]   @relation("Seen", fields: [seenIds], references: [id])
 
-  conversationID String[]     @db.ObjectId
-  conversation   Conversation @relation(fields: [conversationID], references: [id], onDelete: Cascade)
+  conversationId String @db.ObjectId
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
   senderId String @db.ObjectId
   sender   User   @relation(fields: [senderId], references: [id], onDelete: Cascade)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "mongodb"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id       String    @id @default(auto()) @map("_id") @db.ObjectId
+//   name     String?
+//   email    String?   @unique
+//   messages Message[] // messages by this user
+//   // add any other fields you need
+// }
+
+// model Conversation {
+//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
+//   createdAt      DateTime  @default(now())
+//   lastMessagesAt DateTime  @default(now())
+//   name           String?
+//   isGroup        Boolean?
+
+//   // messages for this conversation (one-to-many)
+//   messageIds String[]  @db.ObjectId
+//   messages   Message[]
+
+//   userIds String[] @db.ObjectId
+//   users   User[]   @relation(fields: [userIds], references: [id])
+
+//   // messages       Message[]
+//   // users          User[]     // participants (implicit)
+// }
+
+// model Message {
+//   id            String       @id @default(auto()) @map("_id") @db.ObjectId
+//   body          String?
+//   image         String?
+//   createdAt     DateTime     @default(now())
+
+//   // seen: keep raw ids array (optional). Many-to-many relations in Mongo/Prisma are tricky,
+//   // so for now store seen user ids and query users separately if needed.
+//   seenIds       String[]     @db.ObjectId
+
+//   // correct single-scalar relation field (NOT an array)
+//   conversationId String       @db.ObjectId
+//   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+//   // sender: single scalar foreign key
+//   senderId      String       @db.ObjectId
+//   sender        User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+// }

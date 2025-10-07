@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import axios from 'axios';
 import Avatar from ' /app/components/Avatar';
+import LoadingModal from ' /app/components/LoadingModal';
 
 
 
@@ -44,48 +45,54 @@ const UserBox:React.FC<UserBoxProps> = (
 
 
     return (
-        <div
-         onClick={handleClick}
-         className='
-         relative
-         flex
-         items-center
-         w-full
-         space-x-3
-         bg-white
-         p-3
-         hover:bg-neutral-100
-         rounded-lg
-         transition
-         cursor-pointer
-         '>
-            {console.log("Now inside return",data.name)}
+        <>
+            {isLoading && (
+                <LoadingModal />
+            )}
             
-            <Avatar user={data} />
-            <div className='min-w-0 flex-1'>
-                <div className='focus:outline-none'>
-                    <div className="
-                    flex
-                    justify-between
-                    items-center
-                    mb-1">
-                        <p className='
-                        text-sm
-                        font-medium
-                        text-gray-900
-                        ' >
-                            {data.name}
-                            {/* <p>{data.name ?? "No name found"}</p> */}
+            <div
+            onClick={handleClick}
+            className='
+            relative
+            flex
+            items-center
+            w-full
+            space-x-3
+            bg-white
+            p-3
+            hover:bg-neutral-100
+            rounded-lg
+            transition
+            cursor-pointer
+            '>
+                {console.log("Now inside return",data.name)}
+                
+                <Avatar user={data} />
+                <div className='min-w-0 flex-1'>
+                    <div className='focus:outline-none'>
+                        <div className="
+                        flex
+                        justify-between
+                        items-center
+                        mb-1">
+                            <p className='
+                            text-sm
+                            font-medium
+                            text-gray-900
+                            ' >
+                                {data.name}
+                                {/* <p>{data.name ?? "No name found"}</p> */}
 
 
-                        </p>
+                            </p>
+
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
 
-        </div>
+            </div>
+        </>
     )
 }
 

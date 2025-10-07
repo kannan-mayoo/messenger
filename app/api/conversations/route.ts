@@ -1,6 +1,8 @@
 import getCurrentUser from " /app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 // import { prisma } from " /app/generated/prisma";
+import { pusherServer } from " /app/libs/pusher";
+import { pusherClient } from " /app/libs/pusher";
 
 import { PrismaClient } from ' /app/generated/prisma'
 const prisma = new PrismaClient()
@@ -48,6 +50,13 @@ export async function POST(
                     users:true
                 }
             });
+
+            newConversation.users.forEach((user) => {
+            if (user.email) {
+                pusherServer.trigger(user.email, 'conversation:new', newConversation)
+            }
+            });
+
             return NextResponse.json(newConversation);
         }
 
@@ -91,6 +100,13 @@ export async function POST(
                 users:true 
             }
         });
+
+        newConversation.users.map((user) => {
+        if (user.email) {
+            pusherServer.trigger(user.email, 'conversation:new', newConversation);
+        }
+        })
+
 
         return NextResponse.json(newConversation);
     } catch(error:any){
