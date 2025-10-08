@@ -10,9 +10,9 @@ const nextConfig = {
             "avatars.githubusercontent.com",
             "lh3.googleusercontent.com"
         ]
-    },
-  experimental: {
-    optimizeFonts: false,
+    }
+//   experimental: {
+//     optimizeFonts: false,
   }
 
     
