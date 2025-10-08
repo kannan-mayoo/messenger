@@ -13,7 +13,7 @@ export default async function ConversationsLayout({children}:{children:React.Rea
             <div className="h-full">
                 <ConversationList 
                 users={users}
-                initialItems={conversations} />
+                initialItems={Array.isArray(conversations) ? conversations:[]} />
                 {children}
             </div>
         </Sidebar>
