@@ -44,7 +44,6 @@ const ConversationList:React.FC<ConversationListProps> = ({
 }) => {
     const session = useSession();
 
-    console.log("FullConversationType Block", FullConversationType);
     console.log("InitialItems Block", initialItems);
     const [items, setItems] = useState(initialItems);
     const [isModalOpen, setIsModalOpen] = useState(false);
