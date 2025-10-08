@@ -13,7 +13,7 @@ import LoadingModal from ' /app/components/LoadingModal';
 
 
 interface UserBoxProps {
-    data:User[]
+    data:User
 }
 
 const UserBox:React.FC<UserBoxProps> = (
