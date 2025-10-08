@@ -4,8 +4,18 @@ import './globals.css'
 import ToasterContext from './context/ToasterContext'
 import Authcontext from './context/AuthContext'
 import ActiveStatus from './components/ActiveStatus'
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+const inter = localFont({
+  src: [
+    { path: '/fonts/Inter-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '/fonts/Inter-Bold.woff2', weight: '700', style: 'normal' }
+  ],
+  variable: '--font-inter',
+  display: 'swap'
+});
+
 
 export const metadata: Metadata = {
   title: 'Messenger Clone',
