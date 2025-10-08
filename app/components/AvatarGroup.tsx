@@ -8,7 +8,7 @@ import Image from "next/image";
 interface AvatarGroupProps {
 //   isOpen?: boolean;
 //   onClose: () => void;
-  users?: User[]
+  users: User[]
 }
 
 
