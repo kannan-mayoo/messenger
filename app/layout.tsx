@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import './globals.css'
 import ToasterContext from './context/ToasterContext'
 import Authcontext from './context/AuthContext'
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: {  
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <body className={inter.className}>
         <Authcontext>
           <ToasterContext />
           <ActiveStatus />
