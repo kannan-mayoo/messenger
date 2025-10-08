@@ -13,6 +13,7 @@ import ConfirmModal from "./ConfirmModal";
 import { Conversation } from ' /app/generated/prisma';
 import AvatarGroup from " /app/components/AvatarGroup";
 import useActiveList from " /app/hooks/useActiveList";
+import { User } from " /app/generated/prisma";
 
 
 
