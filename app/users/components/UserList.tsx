@@ -42,7 +42,6 @@ const UserList: React.FC<UserListProps> = ({
                         People
                     </div>
                 </div>
-                {console.log("It comes till here")}
                 {(items || []).map((item) => (
                     <UserBox 
                     key={item.id}
@@ -50,7 +49,6 @@ const UserList: React.FC<UserListProps> = ({
                     />
                     // {console.log("Inside zone:", items)}
                 ))}
-                {console.log("Right now, crossed that")}
 
             </div>
         </aside>

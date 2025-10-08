@@ -65,7 +65,6 @@ const UserBox:React.FC<UserBoxProps> = (
             transition
             cursor-pointer
             '>
-                {console.log("Now inside return",data.name)}
                 
                 <Avatar user={data} />
                 <div className='min-w-0 flex-1'>

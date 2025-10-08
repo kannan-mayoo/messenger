@@ -103,7 +103,6 @@ const ConversationBox:React.FC<ConversationBoxProps> = ({
         </div>
       </div>
 
-            {/* Conversation Box */}
         </div>
      );
 }

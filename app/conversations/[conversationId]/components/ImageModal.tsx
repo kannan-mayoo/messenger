@@ -38,9 +38,7 @@ const ImageModal:React.FC<ImageModalProps> = ({
 
 
 
-        // <div>
-        //     ImageModal !!!
-        // </div>
+        
      );
 }
  

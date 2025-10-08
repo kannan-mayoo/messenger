@@ -88,7 +88,6 @@ const Body:React.FC<BodyProps> = ({
             ))}
 
             {/* <div ref={bottomRef} className="pt-24" /> */}
-            {/* Body!!! */}
         </div>
      );
 }
