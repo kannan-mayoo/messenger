@@ -77,10 +77,7 @@ const Body:React.FC<BodyProps> = ({
 
     return ( 
         <div className="flex-1 overflow-y-auto" >
-            {/* { console.log("Messages in InitailMessages", initialMessages) } */}
-            {/* <MessageBox /> */}
-
-            { console.log("Messages in Body", messages) }
+            
             {messages.map((message, i) => (
 
             <MessageBox 
