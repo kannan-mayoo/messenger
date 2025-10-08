@@ -3,7 +3,7 @@
 
 import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Conversation, Message, User } from "../generated/prisma";
+import { Conversation, Message, User } from " /app/generated/prisma";
 import {format} from "date-fns";
 import {useSession} from "next-auth/react"
 import clsx from "clsx";
@@ -44,7 +44,7 @@ const ConversationBox:React.FC<ConversationBoxProps> = ({
     const hasSeen = useMemo(() => {
     if (!lastMessage) return false;
 
-    const seenArray = lastMessage.seenByUsers || [];
+    const seenArray = lastMessage.seen || [];
 
     if (!userEmail) return false;
 
