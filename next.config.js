@@ -10,6 +10,10 @@ const nextConfig = {
             "avatars.githubusercontent.com",
             "lh3.googleusercontent.com"
         ]
+    },
+    webpack: (config) => {
+        config.externals.push('encoding');
+        return config;
     }
 //   experimental: {
 //     optimizeFonts: false,
