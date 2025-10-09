@@ -1,0 +1,5 @@
+# generated / prisma runtime (ignore build-time generated files)
+app/generated/
+prisma/
+.next/
+node_modules/
